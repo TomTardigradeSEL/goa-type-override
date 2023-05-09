@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package pets;
+
+option go_package = "petsvc/interfaces/pets";
+
+message Cat {
+    int32 Weight = 1;
+    string Color = 2;
+    int32 Age = 3;
+    string Type = 4;
+}

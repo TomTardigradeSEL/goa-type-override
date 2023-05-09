@@ -1,0 +1,54 @@
+// Code generated with goa v3.11.3, DO NOT EDIT.
+//
+// Pet Service protocol buffer definition
+//
+// Command:
+// $ goa gen petsvc/design
+
+syntax = "proto3";
+
+package pet_service;
+
+option go_package = "/pet_servicepb";
+import "pets/dog.proto";
+import "pets/cat.proto";
+
+// Service is the Pet Service service interface.
+service PetService {
+	// SendDogs implements SendDogs.
+	rpc SendDogs (stream SendDogsStreamingRequest) returns (SendDogsResponse);
+	// ReceiveDogs implements ReceiveDogs.
+	rpc ReceiveDogs (ReceiveDogsRequest) returns (stream ReceiveDogsResponse);
+	// SendCat implements SendCat.
+	rpc SendCat (SendCatRequest) returns (SendCatResponse);
+	// ReceiveCat implements ReceiveCat.
+	rpc ReceiveCat (ReceiveCatRequest) returns (ReceiveCatResponse);
+}
+
+message SendDogsStreamingRequest {
+	pets.Dog dog = 1;
+}
+
+message SendDogsResponse {
+}
+
+message ReceiveDogsRequest {
+}
+
+message ReceiveDogsResponse {
+	pets.Dog dog = 1;
+}
+
+message SendCatRequest {
+	pets.Cat cat = 1;
+}
+
+message SendCatResponse {
+}
+
+message ReceiveCatRequest {
+}
+
+message ReceiveCatResponse {
+	pets.Cat cat = 1;
+}
